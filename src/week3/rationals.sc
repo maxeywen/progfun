@@ -12,9 +12,15 @@ object rationals {
   y.add(y)                                        //> res3: Rational = 10/7
   x.less(y)                                       //> res4: Boolean = true
   x.max(y)                                        //> res5: Rational = 5/7
+  
+  
 }
 
 class Rational(x: Int, y: Int) {
+  require(y != 0, "denominator can not equal zero")
+  
+  def this(x: Int) = this(x, 1)
+  
   private def gcd(a: Int, b: Int): Int =
     if (b == 0) a else gcd(b, a % b)
   
