@@ -10,6 +10,8 @@ object rationals {
   
   x.sub(y).sub(z)                                 //> res2: Rational = -79/42
   y.add(y)                                        //> res3: Rational = 10/7
+  x.less(y)                                       //> res4: Boolean = true
+  x.max(y)                                        //> res5: Rational = 5/7
 }
 
 class Rational(x: Int, y: Int) {
@@ -19,6 +21,10 @@ class Rational(x: Int, y: Int) {
   private val g = gcd(x, y)
   def numer = x / g
   def denom = y / g
+  
+  def less(that: Rational) = numer * that.denom < denom * that.numer
+  
+  def max(that: Rational) = if (this.less(that)) that else this
   
   def add(that: Rational) =
     new Rational(
