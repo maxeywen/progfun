@@ -1,7 +1,12 @@
-package week3
+// package week3
 
 object rationals {
-  new Rational(1, 2)                              //> res0: week3.Rational = week3.Rational@51521cc1
+  val x = new Rational(1, 2)                      //> x  : Rational = Rational@51521cc1
+  x.numer                                         //> res0: Int = 1
+  x.denom                                         //> res1: Int = 2
 }
 
-class Rational(x: Int, y: Int)
+class Rational(x: Int, y: Int) {
+  def numer = x
+  def denom = y
+}
