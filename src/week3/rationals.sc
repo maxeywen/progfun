@@ -13,7 +13,7 @@ object rationals {
   x.less(y)                                       //> res4: Boolean = true
   x.max(y)                                        //> res5: Rational = 5/7
   
-  
+  new Rational(2)                                 //> res6: Rational = 2/1
 }
 
 class Rational(x: Int, y: Int) {
@@ -24,9 +24,9 @@ class Rational(x: Int, y: Int) {
   private def gcd(a: Int, b: Int): Int =
     if (b == 0) a else gcd(b, a % b)
   
-  private val g = gcd(x, y)
-  def numer = x / g
-  def denom = y / g
+  // private val g = gcd(x, y)
+  def numer = x
+  def denom = y
   
   def less(that: Rational) = numer * that.denom < denom * that.numer
   
@@ -41,5 +41,8 @@ class Rational(x: Int, y: Int) {
   
   def sub(that: Rational) = add(that.neg)
       
-  override def toString = numer + "/" + denom
+  override def toString = {
+    val g = gcd(numer, denom)
+    numer / g + "/" + denom /g
+  }
 }
