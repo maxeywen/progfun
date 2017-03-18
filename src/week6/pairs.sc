@@ -36,5 +36,12 @@ object pairs {
                                                   //> res5: scala.collection.immutable.IndexedSeq[(Int, Int)] = Vector((2,1), (3,2
                                                   //| ), (4,1), (4,3), (5,2), (6,1), (6,5))
     
+  for {
+    i <- 1 until n
+    j <- 1 until i
+    if isPrime(i+j)
+  } yield (i, j)                                  //> res6: scala.collection.immutable.IndexedSeq[(Int, Int)] = Vector((2,1), (3,2
+                                                  //| ), (4,1), (4,3), (5,2), (6,1), (6,5))
+    
   
 }
